@@ -19,7 +19,7 @@ $(document).ready(() => {
     $.each(movies, (index, movie) => {
         output += `
         <div class="row">
-            <div class="col s12 m7>
+            <div class="col s4 m7 center-align>
                 <div class="card">
                     <div class="card-image">
                         <img src="${movie.Poster}">
@@ -129,151 +129,70 @@ function movieDetail(){
 
               console.log(response);
               let streaming = response.streamingInfo;
+              let streamingName = '';
+              let streamingLink = ''
               if(streaming.disney){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.disney.us.link}'>  Disney Plus</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output);
+                streamingName = 'Disney Plus';
+                streamingLink = streaming.disney.us.link;
                 
                 console.log(streaming);
               }else if(streaming.netflix){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.netflix.us.link}'>  Netflix</a>}</li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output);
+                streamingName = 'Netflix';
+                streamingLink = streaming.netflix.us.link;
+               
               }else if(streaming.hulu){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hulu.us.link}'>  Hulu</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output);
+                streamingName = 'Disney Plus';
+                streamingLink = streaming.disney.us.link;
+                
               }else if(streaming.hbo){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hbo.us.link}'>  Hbo Max</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output);
+                streamingName = 'Hbo Max';
+                streamingLink = streaming.hbo.us.link;
+               
               }else if(streaming.peacock){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.peacock.us.link}'>  Peacock</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output)
-              }else if(streaming.paramount){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.paramount.us.link}'>  Paramount</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output)
+                streamingName = 'Peacock';
+                streamingLink = streaming.peacock.us.link;
+            
               }else if(streaming.starz){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.starz.us.link}'>  Starz</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
+                streamingName = 'Starz';
+                streamingLink = streaming.starz.us.link;
                       
                 $('#stream').html(output)
               }else if(streaming.showtime){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.showtime.us.link}'>  Showtime</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output)
-              }else if(streaming.apple){
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.apple.us.link}'>  Apple</a></li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output)
-              }else{
-                let output = `
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong>Not on a streaming service.</li>
-                    </ul>
-                  </div>
-                </div>
-                    
-                `;
-                      
-                $('#stream').html(output)
-              }        
-
+                streamingName = 'Showtime';
+                streamingLink = streaming.showtime.us.link;
                 
+              }else if(streaming.apple){
+                streamingName = 'Apple Tv';
+                streamingLink = streaming.apple.us.link;
+            }else{
+                let output = `
+                <div class="row">
+                <div class="col-md-8">
+                <h2>What streaming site?</h2>
+                <ul class="list-group">
+                <li class="list-group-item"><strong>Stream site:</strong>Not on a streaming service.</li>
+                </ul>
+                </div>
+                </div>
+                
+                `;
+                
+                $('#stream').html(output)
+            }        
+            
+            let output = `
+            <div class="row">
+              <div class="col-md-8">
+                <h2>What streaming site?</h2>
+                <ul class="list-group">
+                  <li class="list-group-item"><strong>Stream site:</strong><a href = '${streamingLink}'>  ${streamingName}</a></li>
+                </ul>
+              </div>
+            </div>
+                
+            `;
+            
+            $('#stream').html(output)
             })
             
             .catch(err => console.error(err))
