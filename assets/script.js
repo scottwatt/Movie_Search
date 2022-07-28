@@ -135,7 +135,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.disney.us.link}'>Disney Plus</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.disney.us.link}'>  Disney Plus</a></li>
                     </ul>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.netflix.us.link}'>Netflix</a>}</li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.netflix.us.link}'>  Netflix</a>}</li>
                     </ul>
                   </div>
                 </div>
@@ -165,7 +165,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hulu.us.link}'>Hulu</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hulu.us.link}'>  Hulu</a></li>
                     </ul>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hbo.us.link}'>Hbo Max</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hbo.us.link}'>  Hbo Max</a></li>
                     </ul>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.peacock.us.link}'>Peacock</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.peacock.us.link}'>  Peacock</a></li>
                     </ul>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.paramount.us.link}'>Paramount</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.paramount.us.link}'>  Paramount</a></li>
                     </ul>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.starz.us.link}'Starz</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.starz.us.link}'>  Starz</a></li>
                     </ul>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.showtime.us.link}'>Showtime</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.showtime.us.link}'>  Showtime</a></li>
                     </ul>
                   </div>
                 </div>
@@ -249,7 +249,7 @@ function movieDetail(){
                   <div class="col-md-8">
                     <h2>What streaming site?</h2>
                     <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.apple.us.link}'>Apple</a></li>
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.apple.us.link}'>  Apple</a></li>
                     </ul>
                   </div>
                 </div>
@@ -258,7 +258,19 @@ function movieDetail(){
                       
                 $('#stream').html(output)
               }else{
-                return streaming;
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong>Not on a streaming service.</li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output)
               }        
 
                 
