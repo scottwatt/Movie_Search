@@ -101,17 +101,168 @@ function movieDetail(){
         
         function streaming(){
           let title = sessionStorage.getItem('title');
+          let movieId = sessionStorage.getItem('movieId')
           console.log(title);
-          const options = {
-            method: 'GET',
-            headers: {
-              'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
-              'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-            }
-          };
+          // const options = {
+          //   method: 'GET',
+          //   headers: {
+          //     'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
+          //     'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+          //   }
+          // };
           
-          fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=${title}&output_language=en&language=en`, options)
-            .then(response => response.json())
-            .then(response => console.log(response))
+          // fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=${title}&output_language=en&language=en`, options)
+          //   .then(response => response.json())
+          //   .then(response =>{
+
+            const options = {
+              method: 'GET',
+              headers: {
+                'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
+                'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+              }
+            };
+            
+            fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=us&imdb_id=${movieId}&output_language=en`, options)
+              .then(response => response.json())
+              .then(response => {
+
+              console.log(response);
+              let streaming = response.streamingInfo;
+              if(streaming.disney){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.disney.us.link}'>Disney Plus</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output);
+                
+                console.log(streaming);
+              }else if(streaming.netflix){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.netflix.us.link}'>Netflix</a>}</li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output);
+              }else if(streaming.hulu){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hulu.us.link}'>Hulu</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output);
+              }else if(streaming.hbo){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.hbo.us.link}'>Hbo Max</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output);
+              }else if(streaming.peacock){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.peacock.us.link}'>Peacock</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output)
+              }else if(streaming.paramount){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.paramount.us.link}'>Paramount</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output)
+              }else if(streaming.starz){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.starz.us.link}'Starz</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output)
+              }else if(streaming.showtime){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.showtime.us.link}'>Showtime</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output)
+              }else if(streaming.apple){
+                let output = `
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2>What streaming site?</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Stream site:</strong><a href = '${streaming.apple.us.link}'>Apple</a></li>
+                    </ul>
+                  </div>
+                </div>
+                    
+                `;
+                      
+                $('#stream').html(output)
+              }else{
+                return streaming;
+              }        
+
+                
+            })
+            
             .catch(err => console.error(err))
         }
