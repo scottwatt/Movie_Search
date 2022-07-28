@@ -156,7 +156,6 @@ function movieDetail(){
                 streamingName = 'Starz';
                 streamingLink = streaming.starz.us.link;
                       
-                $('#stream').html(output)
               }else if(streaming.showtime){
                 streamingName = 'Showtime';
                 streamingLink = streaming.showtime.us.link;
