@@ -83,7 +83,7 @@ function movieDetail(){
             ${movie.Plot}
             <hr>
             <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-            <a href="index.html" class="btn btn-default">Go Back To Search</a>
+            <a href="index.html" class="btn btn-default">Return Home</a>
           </div>
         </div>
       `;
