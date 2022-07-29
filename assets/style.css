@@ -1,0 +1,32 @@
+body{
+    background-color: #ebf0ed;
+    /* not sure how to make the img opacity lower */
+    /* background-image: url("./the-Grayman-full-movie.webp"); */
+}
+
+img{
+    margin-top: 2%;
+}
+
+form{
+    margin-bottom: 2%;
+}
+
+.navbar{
+    background-color: #1F2421;
+}
+.btn {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: #49A078;
+  }
+  .btn:hover {
+    color: #216869;
+    background: transparent;
+     box-shadow:none;
+  }
+
+

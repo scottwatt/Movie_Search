@@ -84,7 +84,7 @@ function movieDetail(){
               <hr>
               <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
               <a href="https://www.youtube.com/watch?v=${response.video}" target="_blank" class="btn btn-primary">View Trailer</a>
-              <a href="index.html" class="btn btn-default">Go Back To Search</a>
+              <a href="index.html" class="btn btn-default">Return Home</a>
               </div>
               </div>
               `;
