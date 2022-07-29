@@ -64,6 +64,9 @@ function movieDetail(){
         </div>
         <div class="col-md-8">
         <h2>${movie.Title}</h2>
+        <h3>Plot</h3>
+        ${movie.Plot}
+        <hr>
         <ul class="list-group">
         <li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
         <li class="list-group-item"><strong>Released:</strong> ${movie.Released}</li>
@@ -77,9 +80,6 @@ function movieDetail(){
               </div>
               <div class="row">
               <div class="well">
-              <h3>Plot</h3>
-              ${movie.Plot}
-              <hr>
               <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
               <a href="index.html" class="btn btn-default">Home Page</a>
               </div>
@@ -154,7 +154,6 @@ function movieDetail(){
                 streamingName = 'Starz';
                 streamingLink = streaming.starz.us.link;
                       
-                $('#stream').html(output)
               }else if(streaming.showtime){
                 streamingName = 'Showtime';
                 streamingLink = streaming.showtime.us.link;
@@ -172,7 +171,7 @@ function movieDetail(){
               <div class="col-md-8">
                 <h2>What streaming site?</h2>
                 <ul class="list-group">
-                  <li class="list-group-item"><strong>Stream site:</strong><a href = '${streamingLink}'>  ${streamingName}</a></li>
+                  <li class="list-group-item"><strong>Stream site:</strong><a href = '${streamingLink}' target="_blank">  ${streamingName}</a></li>
                 </ul>
               </div>
             </div>

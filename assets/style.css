@@ -44,7 +44,7 @@ form{
 .box .detail{
     visibility: hidden;
     position: absolute;
-    bottom: 3px;
+    bottom: 8px;
     left: 86px;
     padding: 10px;
     height: 0;
@@ -61,7 +61,8 @@ form{
 .box:hover .detail{
     visibility: visible;
     padding: 10px;
-    height: 90%;
-    width: 60%;
+    height: 95%;
+    width: 63%;
     text-align: center;
+    align-items: center;
 }
