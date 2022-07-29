@@ -17,6 +17,7 @@ $(document).ready(() => {
     let movies = data.Search;
     let output = '';
     $.each(movies, (index, movie) => {
+        if(movie.Poster !== 'N/A'){
         output += `
         <div class="col s6 m4 13">
             <div class="box">
@@ -29,6 +30,7 @@ $(document).ready(() => {
             </div>   
         </div>
       `;
+        }
     });
 
     $('#movies').html(output);
