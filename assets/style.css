@@ -1,5 +1,6 @@
 body{
     background-color: #ebf0ed;
+    
     /* not sure how to make the img opacity lower */
     /* background-image: url("./the-Grayman-full-movie.webp"); */
 }
@@ -30,3 +31,8 @@ form{
   }
 
 
+#movies{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
