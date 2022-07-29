@@ -18,18 +18,15 @@ $(document).ready(() => {
     let output = '';
     $.each(movies, (index, movie) => {
         output += `
-        <div class="col s12 m6">
-            <h2 class="header">${movie.Title}</span>
-            <div class="card vertical">
-                <div class="card-image">
-                    <img src="${movie.Poster}">
+        <div class="col s6 m4 13">
+            <div class="box">
+                <img src="${movie.Poster}">
+                <div class="detail"> 
+                    <h5>${movie.Title}</h5>
+                    <p>${movie.Year}</p>
+                    <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
                 </div>
-                <div class="card-stacked"> 
-                    <div class="card-action">
-                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
-                    </div>   
-                </div>
-            </div>
+            </div>   
         </div>
       `;
     });

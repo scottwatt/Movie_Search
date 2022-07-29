@@ -36,3 +36,32 @@ form{
     display: flex;
     flex-wrap: wrap;
 }
+
+.box {
+    position: relative;
+    width: 100%;
+}
+.box .detail{
+    visibility: hidden;
+    position: absolute;
+    bottom: 3px;
+    left: 86px;
+    padding: 10px;
+    height: 0;
+    width: 0;
+    background: rgba(0,0,0,0.791);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.box:hover .detail{
+    visibility: visible;
+    padding: 10px;
+    height: 90%;
+    width: 60%;
+    text-align: center;
+}
