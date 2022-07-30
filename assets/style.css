@@ -82,7 +82,7 @@ form{
     max-width: 140px;
 }
 
-@media only screen and (max-width: 3400px) {
+@media only screen and (max-width: 1600px) {
     .box .detail {
         left: 80px;
     }
