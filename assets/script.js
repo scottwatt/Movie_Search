@@ -104,7 +104,6 @@ function movieDetail() {
 
 function streaming() {
     let movieId = sessionStorage.getItem('movieId')
-    console.log(title)
 
     // first api key
 
@@ -202,7 +201,7 @@ function streaming() {
                   <div class="column">
                     <h2>What streaming site?</h2>
                     <ul class="list">
-                      <li class="list-item"><strong>Stream site:</strong>  ${streamingName}</a></li>
+                      <li class="list-item"><strong> ${streamingName}</strong></li>
                     </ul>
                   </div>
                 </div>
