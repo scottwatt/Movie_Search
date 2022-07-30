@@ -59,7 +59,7 @@ function movieDetail(){
         let movie = data;
         let output = `
         <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 border">
         <img src="${movie.Poster}" class="thumbnail">
         </div>
         <div class="col-md-8">
@@ -101,25 +101,22 @@ function movieDetail(){
           let title = sessionStorage.getItem('title');
           let movieId = sessionStorage.getItem('movieId')
           console.log(title);
-          // const options = {
-          //   method: 'GET',
-          //   headers: {
-          //     'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
-          //     'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-          //   }
-          // };
+          const options = {
+            method: 'GET',
+            headers: {
+              'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
+              'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+            }
+          };
           
-          // fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=${title}&output_language=en&language=en`, options)
-          //   .then(response => response.json())
-          //   .then(response =>{
 
-            const options = {
-              method: 'GET',
-              headers: {
-                'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
-                'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-              }
-            };
+            // const options = {
+            //   method: 'GET',
+            //   headers: {
+            //     'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
+            //     'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+            //   }
+            // };
             
             fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=us&imdb_id=${movieId}&output_language=en`, options)
               .then(response => response.json())
@@ -129,38 +126,48 @@ function movieDetail(){
               let streaming = response.streamingInfo;
               let streamingName = '';
               let streamingLink = ''
+              let logo= ''
               if(streaming.disney){
                 streamingName = 'Disney Plus';
                 streamingLink = streaming.disney.us.link;
-                
+                logo = "./assets/images/disneypluslogo.jpeg";
                 console.log(streaming);
+
               }else if(streaming.netflix){
                 streamingName = 'Netflix';
                 streamingLink = streaming.netflix.us.link;
+                logo = "./assets/images/netflixlogo.avif";
                
               }else if(streaming.hulu){
-                streamingName = 'Disney Plus';
-                streamingLink = streaming.disney.us.link;
+                streamingName = 'Hulu';
+                streamingLink = streaming.hulu.us.link;
+                logo = "./assets/images/hululogo.png";
                 
               }else if(streaming.hbo){
                 streamingName = 'Hbo Max';
                 streamingLink = streaming.hbo.us.link;
+                logo = "./assets/images/HBO_Max_Logo.png";
                
               }else if(streaming.peacock){
                 streamingName = 'Peacock';
                 streamingLink = streaming.peacock.us.link;
+                logo = "./assets/images/peacocklogo.png";
             
               }else if(streaming.starz){
                 streamingName = 'Starz';
                 streamingLink = streaming.starz.us.link;
+                logo = "./assets/images/starzlogo.png";
                       
               }else if(streaming.showtime){
                 streamingName = 'Showtime';
                 streamingLink = streaming.showtime.us.link;
+                logo = "./assets/images/Showtime_logo.jpeg";
                 
               }else if(streaming.apple){
                 streamingName = 'Apple Tv';
                 streamingLink = streaming.apple.us.link;
+                logo = "./assets/images/appletvlogo.png";
+
             }else{
                 streamingName = 'Not on a streaming service.'
             }        
@@ -171,7 +178,7 @@ function movieDetail(){
               <div class="col-md-8">
                 <h2>What streaming site?</h2>
                 <ul class="list-group">
-                  <li class="list-group-item"><strong>Stream site:</strong><a href = '${streamingLink}' target="_blank">  ${streamingName}</a></li>
+                  <li class="list logo"><strong>Stream site:</strong><a href = '${streamingLink}' target="_blank">  <img class='logoSize' src=${logo} alt='streaming logo'></a>${streamingName}</li>
                 </ul>
               </div>
             </div>

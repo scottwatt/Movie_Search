@@ -66,3 +66,13 @@ form{
     text-align: center;
     align-items: center;
 }
+
+.logo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logoSize{
+    max-width: 140px;
+}
