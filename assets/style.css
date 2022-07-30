@@ -76,3 +76,13 @@ form{
 .logoSize{
     max-width: 140px;
 }
+
+@media only screen and (max-width: 3400px) {
+    .box .detail {
+        left: 80px;
+    }
+    
+    .box:hover .detail {
+        width: 65%;
+    }
+}
