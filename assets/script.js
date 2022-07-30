@@ -59,22 +59,22 @@ function movieDetail(){
         let movie = data;
         let output = `
         <div class="row">
-        <div class="col-md-4 border">
+        <div class="border">
         <img src="${movie.Poster}" class="thumbnail">
         </div>
-        <div class="col-md-8">
+        <div class="column">
         <h2>${movie.Title}</h2>
         <h3>Plot</h3>
         ${movie.Plot}
         <hr>
-        <ul class="list-group">
-        <li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
-        <li class="list-group-item"><strong>Released:</strong> ${movie.Released}</li>
-        <li class="list-group-item"><strong>Rated:</strong> ${movie.Rated}</li>
-        <li class="list-group-item"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
-        <li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
-              <li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
-              <li class="list-group-item"><strong>Actors:</strong> ${movie.Actors}</li>
+        <ul class="list">
+        <li class="list-item"><strong>Genre:</strong> ${movie.Genre}</li>
+        <li class="list-item"><strong>Released:</strong> ${movie.Released}</li>
+        <li class="list-item"><strong>Rated:</strong> ${movie.Rated}</li>
+        <li class="list-item"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
+        <li class="list-item"><strong>Director:</strong> ${movie.Director}</li>
+              <li class="list-item"><strong>Writer:</strong> ${movie.Writer}</li>
+              <li class="list-item"><strong>Actors:</strong> ${movie.Actors}</li>
               </ul>
               </div>
               </div>
@@ -125,8 +125,8 @@ function movieDetail(){
               console.log(response);
               let streaming = response.streamingInfo;
               let streamingName = '';
-              let streamingLink = ''
-              let logo= ''
+              let streamingLink = '';
+              let logo= '';
               if(streaming.disney){
                 streamingName = 'Disney Plus';
                 streamingLink = streaming.disney.us.link;
@@ -175,9 +175,9 @@ function movieDetail(){
             if(streamingLink !== ''){
             let output = `
             <div class="row">
-              <div class="col-md-8">
+              <div class="column">
                 <h2>What streaming site?</h2>
-                <ul class="list-group">
+                <ul class="list">
                   <li class="list logo"><strong>Stream site:</strong><a href = '${streamingLink}' target="_blank">  <img class='logoSize' src=${logo} alt='streaming logo'></a>${streamingName}</li>
                 </ul>
               </div>
@@ -189,10 +189,10 @@ function movieDetail(){
             }else{
                 let output = `
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="column">
                     <h2>What streaming site?</h2>
-                    <ul class="list-group">
-                      <li class="list-group-item"><strong>Stream site:</strong>  ${streamingName}</a></li>
+                    <ul class="list">
+                      <li class="list-item"><strong>Stream site:</strong>  ${streamingName}</a></li>
                     </ul>
                   </div>
                 </div>
