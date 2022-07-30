@@ -44,8 +44,8 @@ form{
 .box .detail{
     visibility: hidden;
     position: absolute;
-    bottom: 8px;
-    left: 86px;
+    bottom: 6px;
+    left: 150px;
     padding: 10px;
     height: 0;
     width: 0;
@@ -62,7 +62,7 @@ form{
     visibility: visible;
     padding: 10px;
     height: 95%;
-    width: 63%;
+    width: 50%;
     text-align: center;
     align-items: center;
 }
