@@ -101,22 +101,22 @@ function movieDetail(){
           let title = sessionStorage.getItem('title');
           let movieId = sessionStorage.getItem('movieId')
           console.log(title);
-          const options = {
-            method: 'GET',
-            headers: {
-              'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
-              'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-            }
-          };
+        //   const options = {
+        //     method: 'GET',
+        //     headers: {
+        //       'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
+        //       'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+        //     }
+        //   };
           
 
-            // const options = {
-            //   method: 'GET',
-            //   headers: {
-            //     'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
-            //     'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-            //   }
-            // };
+            const options = {
+              method: 'GET',
+              headers: {
+                'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
+                'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+              }
+            };
             
             fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=us&imdb_id=${movieId}&output_language=en`, options)
               .then(response => response.json())
