@@ -101,16 +101,16 @@ function movieDetail() {
                           <div class="column">
                           <h2>${movie.Title}</h2>
                           <h3>Plot</h3>
-                          ${movie.Plot}
+                          <div class="plot">${movie.Plot}</div>
                           <hr>
                           <ul class="list">
-                          <li class="list-item"><strong>Genre:</strong> ${movie.Genre}</li>
-                          <li class="list-item"><strong>Released:</strong> ${movie.Released}</li>
-                          <li class="list-item"><strong>Rated:</strong> ${movie.Rated}</li>
-                          <li class="list-item"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
-                          <li class="list-item"><strong>Director:</strong> ${movie.Director}</li>
-                              <li class="list-item"><strong>Writer:</strong> ${movie.Writer}</li>
-                              <li class="list-item"><strong>Actors:</strong> ${movie.Actors}</li>
+                          <li class="list-item"><strong class="bold">Genre:</strong> ${movie.Genre}</li>
+                          <li class="list-item"><strong class="bold">Released:</strong> ${movie.Released}</li>
+                          <li class="list-item"><strong class="bold">Rated:</strong> ${movie.Rated}</li>
+                          <li class="list-item"><strong class="bold">IMDB Rating:</strong> ${movie.imdbRating}</li>
+                          <li class="list-item"><strong class="bold">Director:</strong> ${movie.Director}</li>
+                              <li class="list-item"><strong class="bold">Writer:</strong> ${movie.Writer}</li>
+                              <li class="list-item"><strong class="bold">Actors:</strong> ${movie.Actors}</li>
                               </ul>
                               </div>
                               </div>
@@ -201,7 +201,7 @@ function streaming() {
               <div class="column">
                 <h2>What streaming site?</h2>
                 <ul class="list">
-                  <li class="list logo"><strong>Stream site:</strong><a href = '${streamingLink}' target="_blank">  <img class='logoSize' src=${logo} alt='streaming logo'></a>${streamingName}</li>
+                  <li class="list logo"><strong class="bold">Stream site:</strong><a href = '${streamingLink}' target="_blank">  <img class='logoSize' src=${logo} alt='streaming logo'></a>${streamingName}</li>
                 </ul>
               </div>
             </div>
