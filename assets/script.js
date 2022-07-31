@@ -1,3 +1,23 @@
+   // first api key
+
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
+          'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+        }
+      };
+
+    // second api key 
+
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //         'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
+  //         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+  //     }
+  // };
+
 // get the value of the form input 
 $(document).ready(() => {
     $('#searchForm').on('submit', (e) => {
@@ -52,81 +72,75 @@ function movieSelected(id) {
     return false;
 }
 
+// sets streaming availability api as a global variable
+var streamApi;
+
 function movieDetail() {
     let movieId = sessionStorage.getItem('movieId');
 
     // gets movie details by using imdbID and applying them to html 
-    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=99e26c0f`)
-        .then(function (response) {
-            return response.json()
+  
+  // sets streamapi to fetch function 
+  streamApi = fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=us&imdb_id=${movieId}&output_language=en`, options)
+      .then(response => response.json());
 
-                .then(function (data) {
-                    console.log(data);
-                    let movie = data;
-                    let output = `
-                        <div class="row">
-                        <div class="border">
-                        <img src="${movie.Poster}" class="thumbnail">
-                        </div>
-                        <div class="column">
-                        <h2>${movie.Title}</h2>
-                        <h3>Plot</h3>
-                        ${movie.Plot}
-                        <hr>
-                        <ul class="list">
-                        <li class="list-item"><strong>Genre:</strong> ${movie.Genre}</li>
-                        <li class="list-item"><strong>Released:</strong> ${movie.Released}</li>
-                        <li class="list-item"><strong>Rated:</strong> ${movie.Rated}</li>
-                        <li class="list-item"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
-                        <li class="list-item"><strong>Director:</strong> ${movie.Director}</li>
-                            <li class="list-item"><strong>Writer:</strong> ${movie.Writer}</li>
-                            <li class="list-item"><strong>Actors:</strong> ${movie.Actors}</li>
-                            </ul>
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="well">
-                            <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-                            <a href="index.html" class="btn btn-default">Home Page</a>
-                            </div>
-                            </div>
-                            `;
+      streamApi.then(trailer => {
 
-                    $('#movie').html(output);
-                    streaming()
-                })
-                .catch(function (error) {
-                    console.log(error)
-                });
-
-        })
+        fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=99e26c0f`)
+          .then(function (response) {
+              return response.json()
+  
+              .then(function (data) {
+                      console.log(data);
+                      let movie = data;
+                      let output = `
+                          <div class="row">
+                          <div class="border">
+                          <img src="${movie.Poster}" class="thumbnail">
+                          </div>
+                          <div class="column">
+                          <h2>${movie.Title}</h2>
+                          <h3>Plot</h3>
+                          ${movie.Plot}
+                          <hr>
+                          <ul class="list">
+                          <li class="list-item"><strong>Genre:</strong> ${movie.Genre}</li>
+                          <li class="list-item"><strong>Released:</strong> ${movie.Released}</li>
+                          <li class="list-item"><strong>Rated:</strong> ${movie.Rated}</li>
+                          <li class="list-item"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
+                          <li class="list-item"><strong>Director:</strong> ${movie.Director}</li>
+                              <li class="list-item"><strong>Writer:</strong> ${movie.Writer}</li>
+                              <li class="list-item"><strong>Actors:</strong> ${movie.Actors}</li>
+                              </ul>
+                              </div>
+                              </div>
+                              <div class="row">
+                              <div class="well">
+                              <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
+                              <a href="http://youtube.com/watch?v=${trailer.video}" target="_blank" class="btn btn-primary">View Trailer</a>
+                              <a href="index.html" class="btn btn-default">Home Page</a>
+                              </div>
+                              </div>
+                              `;
+  
+                      $('#movie').html(output);
+                  })
+                  .catch(function (error) {
+                      console.log(error)
+                  });
+  
+          })
+      })
+      
+    
+    
 }
 
+
+
+
 function streaming() {
-    let movieId = sessionStorage.getItem('movieId')
-
-    // first api key
-
-    //   const options = {
-    //     method: 'GET',
-    //     headers: {
-    //       'X-RapidAPI-Key': 'd3d4c5f317mshee3f91b68ed1105p1081f6jsn6048356913dc',
-    //       'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-    //     }
-    //   };
-
-    // second api key 
-
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'ab437ecc54msh017cc446f57b0c5p1b3250jsn88cc1e48f2e2',
-            'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-        }
-    };
-
-    fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=us&imdb_id=${movieId}&output_language=en`, options)
-        .then(response => response.json())
+      streamApi
         .then(response => {
 
             console.log(response);
