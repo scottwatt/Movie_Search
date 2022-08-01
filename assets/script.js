@@ -191,7 +191,12 @@ function streaming() {
                 streamingLink = streaming.apple.us.link;
                 logo = "./assets/images/appletvlogo.png";
 
-            } else {
+            } else if (streaming.prime) {
+                streamingName = 'Amazon Prime';
+                streamingLink = streaming.prime.us.link;
+                logo ="./assets/images/primeLogo.png"
+            } 
+            else {
                 streamingName = 'Not on a streaming service.'
             }
 
