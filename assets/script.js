@@ -115,7 +115,7 @@ function movieDetail() {
                               </div>
                               </div>
                               <div class="row">
-                              <div class="well">
+                              <div>
                               <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
                               <a href="http://youtube.com/watch?v=${trailer.video}" target="_blank" class="btn btn-primary">View Trailer</a>
                               <a href="index.html" class="btn btn-default">Home Page</a>
@@ -200,6 +200,7 @@ function streaming() {
                 streamingName = 'Not on a streaming service.'
             }
 
+            // if streamingLink has value post this html 
             if (streamingLink !== '') {
                 let output = `
             <div class="row">
