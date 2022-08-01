@@ -69,7 +69,7 @@ form{
 .box:hover .detail{
     visibility: visible;
     padding: 10px;
-    height: 95%;
+    height: 97%;
     width: 50%;
     text-align: center;
     align-items: center;
