@@ -13,3 +13,18 @@ USER STORY
 AS A user 
 I WANT to to find the information of a movie and know where it is streaming online 
 So THAT I can easily watch it
+
+
+```Given a movie search app
+WHEN the user searches a movie
+THEN a list of movies is displayed
+WHEN the user hovers over the poster
+THEN the title is displayed along with a "MOVIE DETAILS" button
+WHEN the button is clicked
+THEN a second page with the movie details along with which streaming service is displayed
+WHEN the user clicks on "VIEW IMDB" button 
+THEN the user will be taken to the movie's IMDB page
+WHEN the "VIEW TRAILER" button is clicked
+THEN the user will be taken to the trailer video on youtube
+WHEN the user clicks on the "HOME PAGE" button
+THEN the user will be taken back to the initial page```
