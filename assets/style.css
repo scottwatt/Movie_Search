@@ -15,6 +15,7 @@ img{
     margin-top: 2%;
     height: 450px;
     width: 300px;
+    border: 10px solid;
 }
 
 form{
@@ -85,6 +86,7 @@ form{
 .logoSize{
     max-width: 140px;
     height: fit-content;
+    border: 0 solid;
 }
 
 @media only screen and (max-width: 1600px) {
