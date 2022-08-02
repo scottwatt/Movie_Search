@@ -86,7 +86,7 @@ function movieDetail() {
 
       streamApi.then(trailer => {
 
-        fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=99e26c0f`)
+        fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=99e26c0f`)
           .then(function (response) {
               return response.json()
   
