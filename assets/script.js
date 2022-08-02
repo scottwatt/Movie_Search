@@ -30,7 +30,7 @@ $(document).ready(() => {
 
 
 function getMovies(searchText) {
-    fetch(`http://www.omdbapi.com/?s=${searchText}&apikey=99e26c0f`)
+    fetch(`https://www.omdbapi.com/?s=${searchText}&apikey=99e26c0f`)
         .then(function (response) {
             return response.json()
 
