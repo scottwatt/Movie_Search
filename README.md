@@ -28,3 +28,65 @@ WHEN the "VIEW TRAILER" button is clicked
 THEN the user will be taken to the trailer video on youtube
 WHEN the user clicks on the "HOME PAGE" button
 THEN the user will be taken back to the initial page```
+
+
+## Project Requirements
+
+*Use a CSS framework other than Bootstrap.
+
+*Be deployed to GitHub Pages.
+
+*Be interactive (i.e: accept and respond to user input).
+
+*Use at least two server-side APIs.
+
+*Does not use alerts, confirms, or prompts (use modals).
+
+*Use client-side storage to store persistent data.
+
+*Be responsive.
+
+*Have a polished UI.
+
+*Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id-naming conventions, indentation, quality comments, etc.).
+
+*Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+
+
+## Work Completed
+
+*Creates HTML that responds to JavaScript
+
+*Adds project name to title
+
+*Uses fetch functions to pull 2 API's
+
+*Gets user input and creates movie list based on the value
+
+*Stores movie's id in session storage
+
+*Responsive Navigation Bar
+
+*Adds comments to describe JavaScript
+
+*Uses movieId from sessionstorage to access API's
+
+*Creates an if /else statement to see which streaming service
+
+*Uses values in API to assign values
+
+*Makes the website responsive to different viewports
+
+## Deployed Site
+
+The deployed site hosted by GitHub.
+
+https://scottwatt.github.io/Movie_Search
+
+
+## Screenshot
+
+### Full page
+![screenshot](./assets/images/MovieInfo-Screenshot.png)
+
+![Screenshot](./assets/images/detailScreen.png)
